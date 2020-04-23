@@ -1,0 +1,461 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.2.1 Thu Apr 23 17:49:50 2020
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module lcc31280
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _checkInput
+                             13 	.globl _init
+                             14 	.globl _printf
+                             15 	.globl _joypad
+                             16 	.globl _checkInput
+                             17 	.globl _init
+                             18 	.globl _main
+                             19 ;--------------------------------------------------------
+                             20 ; Externals used
+                             21 ;--------------------------------------------------------
+                             22 	.globl _IE_REG
+                             23 	.globl _SVBK_REG
+                             24 	.globl _OCPD_REG
+                             25 	.globl _OCPS_REG
+                             26 	.globl _BCPD_REG
+                             27 	.globl _BCPS_REG
+                             28 	.globl _RP_REG
+                             29 	.globl _HDMA5_REG
+                             30 	.globl _HDMA4_REG
+                             31 	.globl _HDMA3_REG
+                             32 	.globl _HDMA2_REG
+                             33 	.globl _HDMA1_REG
+                             34 	.globl _VBK_REG
+                             35 	.globl _KEY1_REG
+                             36 	.globl _WX_REG
+                             37 	.globl _WY_REG
+                             38 	.globl _OBP1_REG
+                             39 	.globl _OBP0_REG
+                             40 	.globl _BGP_REG
+                             41 	.globl _DMA_REG
+                             42 	.globl _LYC_REG
+                             43 	.globl _LY_REG
+                             44 	.globl _SCX_REG
+                             45 	.globl _SCY_REG
+                             46 	.globl _STAT_REG
+                             47 	.globl _LCDC_REG
+                             48 	.globl _NR52_REG
+                             49 	.globl _NR51_REG
+                             50 	.globl _NR50_REG
+                             51 	.globl _NR44_REG
+                             52 	.globl _NR43_REG
+                             53 	.globl _NR42_REG
+                             54 	.globl _NR41_REG
+                             55 	.globl _NR34_REG
+                             56 	.globl _NR33_REG
+                             57 	.globl _NR32_REG
+                             58 	.globl _NR31_REG
+                             59 	.globl _NR30_REG
+                             60 	.globl _NR24_REG
+                             61 	.globl _NR23_REG
+                             62 	.globl _NR22_REG
+                             63 	.globl _NR21_REG
+                             64 	.globl _NR14_REG
+                             65 	.globl _NR13_REG
+                             66 	.globl _NR12_REG
+                             67 	.globl _NR11_REG
+                             68 	.globl _NR10_REG
+                             69 	.globl _IF_REG
+                             70 	.globl _TAC_REG
+                             71 	.globl _TMA_REG
+                             72 	.globl _TIMA_REG
+                             73 	.globl _DIV_REG
+                             74 	.globl _SC_REG
+                             75 	.globl _SB_REG
+                             76 	.globl _P1_REG
+                             77 	.globl __io_out
+                             78 	.globl __io_in
+                             79 	.globl __io_status
+                             80 	.globl _sys_time
+                             81 	.globl __cpu
+                             82 ;--------------------------------------------------------
+                             83 ; special function registers
+                             84 ;--------------------------------------------------------
+                             85 ;--------------------------------------------------------
+                             86 ; special function bits 
+                             87 ;--------------------------------------------------------
+                             88 ;--------------------------------------------------------
+                             89 ; internal ram data
+                             90 ;--------------------------------------------------------
+                             91 	.area _DATA
+                             92 ;--------------------------------------------------------
+                             93 ; overlayable items in internal ram 
+                             94 ;--------------------------------------------------------
+                             95 	.area _OVERLAY
+                             96 ;--------------------------------------------------------
+                             97 ; indirectly addressable internal ram data
+                             98 ;--------------------------------------------------------
+                             99 	.area _ISEG
+                            100 ;--------------------------------------------------------
+                            101 ; bit data
+                            102 ;--------------------------------------------------------
+                            103 	.area _BSEG
+                            104 ;--------------------------------------------------------
+                            105 ; external ram data
+                            106 ;--------------------------------------------------------
+                            107 	.area _XSEG
+                            108 ;--------------------------------------------------------
+                            109 ; global & static initialisations
+                            110 ;--------------------------------------------------------
+                            111 	.area _GSINIT
+                            112 	.area _GSFINAL
+                            113 	.area _GSINIT
+                            114 ;--------------------------------------------------------
+                            115 ; Home
+                            116 ;--------------------------------------------------------
+                            117 	.area _HOME
+                            118 	.area _CODE
+                            119 ;--------------------------------------------------------
+                            120 ; code
+                            121 ;--------------------------------------------------------
+                            122 	.area _CODE
+                            123 ;	main.c 7
+                            124 ; genLabel
+                            125 ; genFunction
+                            126 ;	---------------------------------
+                            127 ; Function main
+                            128 ; ---------------------------------
+   0000                     129 ___main_start:
+   0000                     130 _main:
+                            131 	
+                            132 ;	main.c 9
+                            133 ; genCall
+   0000 CD 0A 00            134 	call	_init
+                            135 ;	main.c 11
+                            136 ; genLabel
+   0003                     137 00102$:
+                            138 ;	main.c 13
+                            139 ; genCall
+   0003 CD 1D 00            140 	call	_checkInput
+                            141 ; genGoto
+   0006 C3 03 00            142 	jp	00102$
+                            143 ; genLabel
+   0009                     144 00104$:
+                            145 ; genEndFunction
+                            146 	
+   0009 C9                  147 	ret
+   000A                     148 ___main_end:
+                            149 ;	main.c 20
+                            150 ; genLabel
+                            151 ; genFunction
+                            152 ;	---------------------------------
+                            153 ; Function init
+                            154 ; ---------------------------------
+   000A                     155 ___init_start:
+   000A                     156 _init:
+                            157 	
+                            158 ;	main.c 22
+                            159 ; genOr
+                            160 ; AOP_SFR for _LCDC_REG
+                            161 ; Type res[4] = l[4]&r[1]
+                            162 ; Size res[1] = l[1]&r[1]
+   000A F0 00               163 	ldh	a,(_LCDC_REG+0) ; x
+   000C F6 80               164 	or	a,#0x80
+   000E E0 00               165 	ldh	(_LCDC_REG+0),a
+                            166 ;	main.c 23
+                            167 ; genAssign
+                            168 ; AOP_SFR for _NR52_REG
+   0010 3E 8F               169 	ld	a,#0x8F
+   0012 E0 00               170 	ldh	(_NR52_REG+0),a
+                            171 ;	main.c 24
+                            172 ; genAssign
+                            173 ; AOP_SFR for _NR51_REG
+   0014 3E 11               174 	ld	a,#0x11
+   0016 E0 00               175 	ldh	(_NR51_REG+0),a
+                            176 ;	main.c 25
+                            177 ; genAssign
+                            178 ; AOP_SFR for _NR50_REG
+   0018 3E 77               179 	ld	a,#0x77
+   001A E0 00               180 	ldh	(_NR50_REG+0),a
+                            181 ; genLabel
+   001C                     182 00101$:
+                            183 ; genEndFunction
+                            184 	
+   001C C9                  185 	ret
+   001D                     186 ___init_end:
+                            187 ;	main.c 28
+                            188 ; genLabel
+                            189 ; genFunction
+                            190 ;	---------------------------------
+                            191 ; Function checkInput
+                            192 ; ---------------------------------
+   001D                     193 ___checkInput_start:
+   001D                     194 _checkInput:
+   001D C5                  195 	push	bc
+                            196 	
+                            197 ;	main.c 41
+                            198 ; genCall
+   001E CD 00 00            199 	call	_joypad
+   0021 4B                  200 	ld	c,e
+                            201 ; genAnd
+   0022 79                  202 	ld	a,c
+   0023 CB 6F               203 	bit	5,a
+   0025 CA 31 00            204 	jp	z,00102$
+                            205 ;	main.c 42
+                            206 ; genIpush
+   0028 21 B8 00            207 	ld	hl,#__str_0 + 0
+   002B E5                  208 	push	hl
+                            209 ; genCall
+   002C CD 00 00            210 	call	_printf
+   002F E8 02               211 	lda	sp,2(sp)
+                            212 ; genLabel
+   0031                     213 00102$:
+                            214 ;	main.c 45
+                            215 ; genCall
+   0031 CD 00 00            216 	call	_joypad
+   0034 4B                  217 	ld	c,e
+                            218 ; genAnd
+   0035 79                  219 	ld	a,c
+   0036 CB 67               220 	bit	4,a
+   0038 CA 44 00            221 	jp	z,00104$
+                            222 ;	main.c 46
+                            223 ; genIpush
+   003B 21 BB 00            224 	ld	hl,#__str_1 + 0
+   003E E5                  225 	push	hl
+                            226 ; genCall
+   003F CD 00 00            227 	call	_printf
+   0042 E8 02               228 	lda	sp,2(sp)
+                            229 ; genLabel
+   0044                     230 00104$:
+                            231 ;	main.c 49
+                            232 ; genCall
+   0044 CD 00 00            233 	call	_joypad
+   0047 4B                  234 	ld	c,e
+                            235 ; genAnd
+   0048 79                  236 	ld	a,c
+   0049 CB 7F               237 	bit	7,a
+   004B CA 57 00            238 	jp	z,00106$
+                            239 ;	main.c 50
+                            240 ; genIpush
+   004E 21 BE 00            241 	ld	hl,#__str_2 + 0
+   0051 E5                  242 	push	hl
+                            243 ; genCall
+   0052 CD 00 00            244 	call	_printf
+   0055 E8 02               245 	lda	sp,2(sp)
+                            246 ; genLabel
+   0057                     247 00106$:
+                            248 ;	main.c 53
+                            249 ; genCall
+   0057 CD 00 00            250 	call	_joypad
+   005A 4B                  251 	ld	c,e
+                            252 ; genAnd
+   005B 79                  253 	ld	a,c
+   005C CB 77               254 	bit	6,a
+   005E CA 6A 00            255 	jp	z,00108$
+                            256 ;	main.c 54
+                            257 ; genIpush
+   0061 21 C4 00            258 	ld	hl,#__str_3 + 0
+   0064 E5                  259 	push	hl
+                            260 ; genCall
+   0065 CD 00 00            261 	call	_printf
+   0068 E8 02               262 	lda	sp,2(sp)
+                            263 ; genLabel
+   006A                     264 00108$:
+                            265 ;	main.c 57
+                            266 ; genCall
+   006A CD 00 00            267 	call	_joypad
+   006D 4B                  268 	ld	c,e
+                            269 ; genAnd
+   006E 79                  270 	ld	a,c
+   006F CB 57               271 	bit	2,a
+   0071 CA 7D 00            272 	jp	z,00110$
+                            273 ;	main.c 58
+                            274 ; genIpush
+   0074 21 CB 00            275 	ld	hl,#__str_4 + 0
+   0077 E5                  276 	push	hl
+                            277 ; genCall
+   0078 CD 00 00            278 	call	_printf
+   007B E8 02               279 	lda	sp,2(sp)
+                            280 ; genLabel
+   007D                     281 00110$:
+                            282 ;	main.c 61
+                            283 ; genCall
+   007D CD 00 00            284 	call	_joypad
+   0080 4B                  285 	ld	c,e
+                            286 ; genAnd
+   0081 79                  287 	ld	a,c
+   0082 CB 5F               288 	bit	3,a
+   0084 CA 90 00            289 	jp	z,00112$
+                            290 ;	main.c 62
+                            291 ; genIpush
+   0087 21 CE 00            292 	ld	hl,#__str_5 + 0
+   008A E5                  293 	push	hl
+                            294 ; genCall
+   008B CD 00 00            295 	call	_printf
+   008E E8 02               296 	lda	sp,2(sp)
+                            297 ; genLabel
+   0090                     298 00112$:
+                            299 ;	main.c 65
+                            300 ; genCall
+   0090 CD 00 00            301 	call	_joypad
+   0093 4B                  302 	ld	c,e
+                            303 ; genAnd
+   0094 79                  304 	ld	a,c
+   0095 CB 4F               305 	bit	1,a
+   0097 CA A3 00            306 	jp	z,00114$
+                            307 ;	main.c 66
+                            308 ; genIpush
+   009A 21 D3 00            309 	ld	hl,#__str_6 + 0
+   009D E5                  310 	push	hl
+                            311 ; genCall
+   009E CD 00 00            312 	call	_printf
+   00A1 E8 02               313 	lda	sp,2(sp)
+                            314 ; genLabel
+   00A3                     315 00114$:
+                            316 ;	main.c 69
+                            317 ; genCall
+   00A3 CD 00 00            318 	call	_joypad
+   00A6 4B                  319 	ld	c,e
+                            320 ; genAnd
+   00A7 79                  321 	ld	a,c
+   00A8 CB 47               322 	bit	0,a
+   00AA CA B6 00            323 	jp	z,00117$
+                            324 ;	main.c 70
+                            325 ; genIpush
+   00AD 21 D8 00            326 	ld	hl,#__str_7 + 0
+   00B0 E5                  327 	push	hl
+                            328 ; genCall
+   00B1 CD 00 00            329 	call	_printf
+   00B4 E8 02               330 	lda	sp,2(sp)
+                            331 ; genLabel
+   00B6                     332 00117$:
+                            333 ; genEndFunction
+                            334 	
+   00B6 C1                  335 	pop	bc
+   00B7 C9                  336 	ret
+   00B8                     337 ___checkInput_end:
+   00B8                     338 __str_0:
+   00B8 42                  339 	.ascii "B"
+   00B9 0A                  340 	.db 0x0A
+   00BA 00                  341 	.db 0x00
+   00BB                     342 __str_1:
+   00BB 41                  343 	.ascii "A"
+   00BC 0A                  344 	.db 0x0A
+   00BD 00                  345 	.db 0x00
+   00BE                     346 __str_2:
+   00BE 53 54 41 52 54      347 	.ascii "START"
+   00C3 00                  348 	.db 0x00
+   00C4                     349 __str_3:
+   00C4 53 45 4C 45 43 54   350 	.ascii "SELECT"
+   00CA 00                  351 	.db 0x00
+   00CB                     352 __str_4:
+   00CB 55 50               353 	.ascii "UP"
+   00CD 00                  354 	.db 0x00
+   00CE                     355 __str_5:
+   00CE 44 4F 57 4E         356 	.ascii "DOWN"
+   00D2 00                  357 	.db 0x00
+   00D3                     358 __str_6:
+   00D3 4C 45 46 54         359 	.ascii "LEFT"
+   00D7 00                  360 	.db 0x00
+   00D8                     361 __str_7:
+   00D8 52 49 47 48 54      362 	.ascii "RIGHT"
+   00DD 00                  363 	.db 0x00
+                            364 	.area _CODE
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
+
+Symbol Table
+
+    _BCPD_REG                          **** GX
+    _BCPS_REG                          **** GX
+    _BGP_REG                           **** GX
+    _DIV_REG                           **** GX
+    _DMA_REG                           **** GX
+    _HDMA1_REG                         **** GX
+    _HDMA2_REG                         **** GX
+    _HDMA3_REG                         **** GX
+    _HDMA4_REG                         **** GX
+    _HDMA5_REG                         **** GX
+    _IE_REG                            **** GX
+    _IF_REG                            **** GX
+    _KEY1_REG                          **** GX
+    _LCDC_REG                          **** GX
+    _LYC_REG                           **** GX
+    _LY_REG                            **** GX
+    _NR10_REG                          **** GX
+    _NR11_REG                          **** GX
+    _NR12_REG                          **** GX
+    _NR13_REG                          **** GX
+    _NR14_REG                          **** GX
+    _NR21_REG                          **** GX
+    _NR22_REG                          **** GX
+    _NR23_REG                          **** GX
+    _NR24_REG                          **** GX
+    _NR30_REG                          **** GX
+    _NR31_REG                          **** GX
+    _NR32_REG                          **** GX
+    _NR33_REG                          **** GX
+    _NR34_REG                          **** GX
+    _NR41_REG                          **** GX
+    _NR42_REG                          **** GX
+    _NR43_REG                          **** GX
+    _NR44_REG                          **** GX
+    _NR50_REG                          **** GX
+    _NR51_REG                          **** GX
+    _NR52_REG                          **** GX
+    _OBP0_REG                          **** GX
+    _OBP1_REG                          **** GX
+    _OCPD_REG                          **** GX
+    _OCPS_REG                          **** GX
+    _P1_REG                            **** GX
+    _RP_REG                            **** GX
+    _SB_REG                            **** GX
+    _SCX_REG                           **** GX
+    _SCY_REG                           **** GX
+    _SC_REG                            **** GX
+    _STAT_REG                          **** GX
+    _SVBK_REG                          **** GX
+    _TAC_REG                           **** GX
+    _TIMA_REG                          **** GX
+    _TMA_REG                           **** GX
+    _VBK_REG                           **** GX
+    _WX_REG                            **** GX
+    _WY_REG                            **** GX
+  0 ___checkInput_end                  00B8 R
+  0 ___checkInput_start                001D R
+  0 ___init_end                        001D R
+  0 ___init_start                      000A R
+  0 ___main_end                        000A R
+  0 ___main_start                      0000 R
+    __cpu                              **** GX
+    __io_in                            **** GX
+    __io_out                           **** GX
+    __io_status                        **** GX
+  0 __str_0                            00B8 R
+  0 __str_1                            00BB R
+  0 __str_2                            00BE R
+  0 __str_3                            00C4 R
+  0 __str_4                            00CB R
+  0 __str_5                            00CE R
+  0 __str_6                            00D3 R
+  0 __str_7                            00D8 R
+  0 _checkInput                        001D GR
+  0 _init                              000A GR
+    _joypad                            **** GX
+  0 _main                              0000 GR
+    _printf                            **** GX
+    _sys_time                          **** GX
+
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
+
+Area Table
+
+   0 _CODE                              size   DE   flags 0
+   1 _DATA                              size    0   flags 0
+   2 _OVERLAY                           size    0   flags 0
+   3 _ISEG                              size    0   flags 0
+   4 _BSEG                              size    0   flags 0
+   5 _XSEG                              size    0   flags 0
+   6 _GSINIT                            size    0   flags 0
+   7 _GSFINAL                           size    0   flags 0
+   8 _HOME                              size    0   flags 0
