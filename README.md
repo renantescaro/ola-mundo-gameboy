@@ -1,7 +1,5 @@
-# ola-mundo-gameboy
+# Olá Mundo no GameBoy
 ## Feito em GBDK
-
-Olá Mundo no GameBoy
 
 * Código principal [main.c](main.c)
 * Script pra gerar .gb [buildWin.bat](buildWin.bat)
